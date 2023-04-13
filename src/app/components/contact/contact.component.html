@@ -1,0 +1,49 @@
+<div class="mb-4">
+    <app-star title="Contact" customColor="#2c3e50"></app-star>
+
+    <form action="" class="w-50 mx-auto mt-4"   [formGroup]="contectForm" (ngSubmit)="sendData()">
+
+        <!-- userName -->
+        <label for="userName" class="position-relative top-0" [class.__top]="!userName.length">Name</label>
+        <input id="userName" class="form-control border border-0 border-bottom py-3 position-relative"
+            [(ngModel)]="userName" type="text" placeholder="Name" name="userName" formControlName="name">
+
+            <div *ngIf="contectForm.get('name')?.invalid && contectForm.get('name')?.touched" class="text-danger ps-3 ">
+                <p *ngIf="contectForm.get('name')?.getError('required')">. Name is required</p>
+                <p *ngIf="contectForm.get('name')?.getError('minLength')">. Min Lenght 3</p>
+                <p *ngIf="contectForm.get('name')?.getError('maxLength')">. Max Lenght 20</p>
+            </div>
+
+        <!-- userEmail -->
+        <label for="userEmail" class="position-relative top-0" [class.__top]="!userEmail.length">Email Address</label>
+        <input id="userEmail" class="form-control border border-0 border-bottom py-3 position-relative"
+            [(ngModel)]="userEmail" type="email" placeholder="Email Address"  name="userName" formControlName="email">
+
+            <div *ngIf="contectForm.get('email')?.invalid && contectForm.get('email')?.touched" class="text-danger ps-3 ">
+                <p *ngIf="contectForm.get('email')?.getError('required')">. Email is required</p>
+                <p *ngIf="contectForm.get('email')?.getError('email')">. Email isn't Valid</p>
+            </div>
+
+        <!-- userPhone Phone Number -->
+        <label for="userPhone" class="position-relative top-0" [class.__top]="!userPhone.length">Phone Number</label>
+        <input id="userPhone" class="form-control border border-0 border-bottom py-3 position-relative"
+            [(ngModel)]="userPhone" type="tel" placeholder="Phone Number" name="userPhone"  formControlName="phone">
+
+        
+            <div *ngIf="contectForm.get('phone')?.invalid && contectForm.get('phone')?.touched" class="text-danger ps-3 ">
+                <p *ngIf="contectForm.get('phone')?.getError('required')">. Phone is required</p>
+                <p *ngIf="contectForm.get('phone')?.getError('pattern')">. Please Enter Egyptation Number</p>
+            </div>
+
+        <!-- userMessage -->
+        <label for="userMessage" class="position-relative top-0" [class.__top]="!userMessage.length">Message</label>
+        <input id="userMessage" class="form-control border border-0 border-bottom py-3  position-relative"
+            [(ngModel)]="userMessage" type="text" placeholder="Message" name="userMessage" formControlName="message">
+
+        <hr class="pt-5 opacity-0">
+
+
+        <button class="btn btn-primary px-4 py-3 my-5 border border-0" >Send</button>
+
+    </form>
+</div>

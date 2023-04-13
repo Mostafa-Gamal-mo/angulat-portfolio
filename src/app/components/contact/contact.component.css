@@ -1,0 +1,25 @@
+.form-control:focus{
+   box-shadow: none; 
+}
+label{
+    color: var(--main-color);
+    margin-bottom: 7px;
+    transition: .4s top;
+}
+
+input::placeholder{
+    /* font-weight: bold; */
+    font-size: 27px !important ;
+}
+
+.__top{
+    top: 40px !important;
+}
+.btn-primary{
+    background-color: var(--main-color);
+    
+}
+.btn-primary:hover{
+    background-color:#066d55d3 ;
+
+}
